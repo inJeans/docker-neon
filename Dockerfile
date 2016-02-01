@@ -6,15 +6,16 @@ MAINTAINER Chris Watkins <christopher.watkins@me.com>
 RUN apt-get update && apt-get install -y \
     build-essential \
     wget \
-    git \
+    git
 
 # Install conda packages
 RUN conda install openblas
 
 # Download and install neon
-RUN conda env create -f neon.yaml
-    source activate neon
+RUN git clone https://github.com/inJeans/docker-neon.git && \
+    conda env create -f docker-neon/neon.yaml && \
+    source activate neon && \
     git clone https://github.com/NervanaSystems/neon.git && \
     cd neon && \
-    python setup.py develop
+    python setup.py develop && \
     source deactivate
