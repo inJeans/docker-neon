@@ -20,8 +20,9 @@ RUN conda install -y openblas
 
 # Download and install neon
 RUN git clone https://github.com/inJeans/docker-neon.git && \
-    conda env create -f docker-neon/neon.yaml && \
-    source activate neon && \
+    conda env create -f docker-neon/neon.yaml
+
+RUN source activate neon && \
     git clone https://github.com/NervanaSystems/neon.git && \
     cd neon && \
     python setup.py develop && \
