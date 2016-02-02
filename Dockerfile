@@ -5,7 +5,7 @@ MAINTAINER Chris Watkins <christopher.watkins@me.com>
 # Update debian repo keys
 RUN apt-get install -y \
     debian-keyring \
-    debian-archive-keyring \
+    debian-archive-keyring && \
     apt-key update
 
 # Install necessary ubuntu applications
