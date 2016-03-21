@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     git
 
 # Install conda packages
-RUN conda install -y openblas
+RUN conda install -y openblas &&
+    conda install -y pandas
 
 # Download neon
 RUN git clone https://github.com/inJeans/docker-neon.git && \
